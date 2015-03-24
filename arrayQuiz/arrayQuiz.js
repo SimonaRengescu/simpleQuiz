@@ -21,7 +21,8 @@ var questionArray = [
 
 //fucntion to print message;
 function print(message) {
-    document.write(message);
+    var outputDiv = document.getElementById('main');
+    outputDiv.innerHTML = message;
 }
 /*
 function to print list of questions that were answered
@@ -55,9 +56,10 @@ function questionRun(array) {
 questionRun(questionArray);
 //Set player score based on how many items pushed to correct array;
 playerScore = questionsCorrect.length;
-print('<p>You have answered ' + playerScore + ' questions correctly</p>');
-print('These are the questions you got correct');
-print(finalStatement(questionsCorrect));
-print('These are the questions you got wrong');
-print(finalStatement(questionsWrong));
+var html = '<p>You have answered ' + playerScore + ' questions correctly</p>';
+html += 'These are the questions you got correct';
+html += finalStatement(questionsCorrect);
+html += '<p>These are the questions you got wrong</p>';
+html += finalStatement(questionsWrong);
+print(html);
 
