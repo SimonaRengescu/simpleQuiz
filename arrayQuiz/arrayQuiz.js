@@ -57,21 +57,21 @@ function finalStatement(array) {
 }
 
 //function to loop and ask questions and keep track or right or wrong;
-function questionRun(array, prop1, prop2) {
+function questionRun(array) {
     var x;
     questionsLeft = array.length - 1;
     for (x = 0; x < array.length; x += 1) {
-        playerResponse = prompt(array[x].prop1 + ' [' + questionsLeft + ']' + ' questions left');
+        playerResponse = prompt(array[x].question + ' [' + questionsLeft + ']' + ' questions left');
         questionsLeft -= 1;
-        if (playerResponse === array[x].prop2) {
-            questionsCorrect.push(array[x].prop1);
+        if (playerResponse === array[x].answer) {
+            questionsCorrect.push(array[x].question);
         } else {
-            questionsWrong.push(array[x].prop1);
+            questionsWrong.push(array[x].question);
         }
     }
 }
 //Run question function;
-questionRun(questionArray, question, answer);
+questionRun(questionArray);
 //Set player score based on how many items pushed to correct array;
 playerScore = questionsCorrect.length;
 var html = '<p>You have answered ' + playerScore + ' questions correctly</p>';
