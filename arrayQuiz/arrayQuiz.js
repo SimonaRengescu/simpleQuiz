@@ -8,14 +8,32 @@ var questionsLeft,
     questionsCorrect = [],
     questionsWrong = [],
     playerScore;
-
+//Array of objects containing questions and answers.;
 var questionArray = [
-    ['What label is Kendrick Lamar signed to?', 'interscope'],
-    ['What label is J.Cole signed to?', 'rocnation'],
-    ['What label is Drake signed to?', 'young money'],
-    ['What label is Travi$ Scott signed to?', 'grand hustle'],
-    ['In which city do the yankees play in?', 'new york'],
-    ['In which city do  the Heat play in?', 'miami']
+    {
+        question: 'What label is Kendrick Lamar signed to?',
+        answer: 'interscope'
+    },
+    {
+        question: 'What label is J.Cole signed to?',
+        answer: 'rocnation'
+    },
+    {
+        question: 'What label is Wale signed to?',
+        answer: 'MMG'
+    },
+    {
+        question: 'What is the capital of New York state?',
+        answer: 'albany'
+    },
+    {
+        question: 'What is the markup language of the internet?',
+        answer: 'HTML'
+    },
+    {
+        question: 'Which languange is used to style internet pages?',
+        answer: 'CSS'
+    }
 ];
 //establishing functions;
 
@@ -43,12 +61,12 @@ function questionRun(array) {
     var x;
     questionsLeft = array.length - 1;
     for (x = 0; x < array.length; x += 1) {
-        playerResponse = prompt(array[x][0] + ' [' + questionsLeft + ']' + ' questions left');
+        playerResponse = prompt(array[x].question + ' [' + questionsLeft + ']' + ' questions left');
         questionsLeft -= 1;
-        if (playerResponse === array[x][1]) {
-            questionsCorrect.push(array[x][0]);
+        if (playerResponse === array[x].answer) {
+            questionsCorrect.push(array[x].question);
         } else {
-            questionsWrong.push(array[x][0]);
+            questionsWrong.push(array[x].question);
         }
     }
 }
